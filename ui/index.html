@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/jquery-ui.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="connect-wallet-block">
+        <button id="connect-wallet">Connect phantom wallet</button>
+    </div>
+    <div id="wallet-connected">
+        <div id="tabs">
+            <ul>
+              <li><a href="#tabs-admin">Admin</a></li>
+              <li><a href="#tabs-wmp">WMP</a></li>
+              <li><a href="#tabs-xwmp">xWMP</a></li>
+              <li><a href="#tabs-staking">Staking</a></li>
+            </ul>
+            <div id="tabs-admin">
+                <ul>
+                    <li class="mb-5">
+                        <p><b>WMP mint: </b> <span id="mint-wmp-address"></span></p>
+                    </li>
+                    <li class="mb-5">
+                        <p><b>XWMP mint: </b> <span id="mint-xwmp-address"></span></p>
+                    </li>
+                </ul>
+                <div id="mint-wmp">
+                    <h3>Mint WMP tokens</h3>
+                    <input type="text" name="address" placeholder="address"/>
+                    <input type="number" name="amount" placeholder="amount" />
+                    <button id="mint-wmp-btn">mint</button>
+                </div>
+                <div id="mint-xwmp">
+                    <h3>Mint xWMP tokens</h3>
+                    <input type="text" name="address" placeholder="address"/>
+                    <input type="number" name="amount" placeholder="amount" />
+                    <button id="mint-xwmp-btn">mint</button>
+                </div>
+                <div id="initialize-staking">
+                    <h3>Initialize staking</h3>
+                    <input type="text" name="wmp-address" placeholder="wmp address"/>
+                    <input type="text" name="xwmp-address" placeholder="xwmp address"/>
+                    <input type="number" name="reward-rate" placeholder="reward rate" />
+                    <button id="init-staking-btn">Initialize</button>
+                </div>
+            </div>
+            <div id="tabs-wmp">
+                <div id="create-wmp-account">
+                    <h3>Create WMP account</h3>
+                    <button id="create-wmp-account-btn">Create</button>
+                </div>
+                <div id="wmp-address-exists">
+                    <div id="user-wmp-data">
+                        <ul class="staking-metadata">
+                            <li>
+                                <p><b>Address: </b> <span id="user-wmp-address"></span></p>
+                            </li>
+                            <li>
+                                <p><b>Balance: </b> <span id="user-wmp-balance"></span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-xwmp">
+                <div id="create-xwmp-account">
+                    <h3>Create xWMP account</h3>
+                    <button id="create-xwmp-account-btn">Create</button>
+                </div>
+                <div id="xwmp-address-exists">
+                    <div id="user-xwmp-data">
+                        <ul class="staking-metadata">
+                            <li>
+                                <p><b>Address: </b> <span id="user-xwmp-address"></span></p>
+                            </li>
+                            <li>
+                                <p><b>Balance: </b> <span id="user-xwmp-balance"></span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="tabs-staking">
+                <div class="flex-container">
+                    <div class="flex">
+                        <div>
+                            <div id="stake">
+                                <h3>Stake</h3>
+                                <input type="number" name="amount" placeholder="amount" />
+                                <button id="stake-btn">Stake</button>
+                            </div>
+                            <div id="unstake">
+                                <h3>Unstake</h3>
+                                <input type="number" name="amount" placeholder="amount" />
+                                <button id="unstake-btn">Unstake</button>
+                            </div>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="mb-5">
+                                    <p><b>Staked: </b> <span id="user-staked"></span></p>
+                                </li>
+                                <li class="mb-5">
+                                    <p><b>Pending rewards: </b> <span id="user-rewards"></span></p>
+                                </li>
+                                <!-- <li class="mb-5">
+                                    <p><b>Rewards per token paid: </b> <span id="rewards-per-token-paid"></span></p>
+                                </li> -->
+                            </ul>
+                        </div>
+                        <div id="get-rewards">
+                            <button id="get-rewards-btn">Get rewards</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h3 class="mb-10">Staking metadata</h3>
+                            <ul class="staking-metadata">
+                                <li>
+                                    <p><b>Metadata: </b> <span id="metadata-address"></span></p>
+                                </li>
+                                <li>
+                                    <p><b>Staking token: </b> <span id="metadata-staking-token"></span></p>
+                                </li>
+                                <li>
+                                    <p><b>Rewards token: </b> <span id="metadata-rewards-token"></span></p>
+                                </li>
+                                <li>
+                                    <p><b>Escrow staking token: </b> <span id="metadata-escrow-staking-token"></span></p>
+                                </li>
+                                <li>
+                                    <p><b>Escrow rewards token: </b> <span id="metadata-escrow-rewards-token"></span></p>
+                                </li>
+                                <li>
+                                    <p><b>Last updated time: </b> <span id="metadata-last-updated-time"></span></p>
+                                </li>
+                                <!-- <li>
+                                    <p><b>Reward rate: </b> <span id="metadata-reward-rate"></span></p>
+                                </li>
+                                <li>
+                                    <p><b>Reward per token stored: </b> <span id="metadata-reward-per-token"></span></p>
+                                </li> -->
+                                <li>
+                                    <p><b>Total supply: </b> <span id="metadata-total-supply"></span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./js/jquery.js"></script>
+<script src="./js/jquery-ui.min.js"></script>
+<script src="./src/main.ts" type="module"></script>
+</html>

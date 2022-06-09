@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+}
+
+#wallet-connected {
+    display: none;
+}
+
+#tabs {
+    height: 100vh;
+}
+
+.staking-metadata li {
+    margin-bottom: 5px;
+}
+
+.mb-5 {
+    margin-bottom: 5px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+#wmp-address-exists {
+    display: none;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#connect-wallet-block {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 10px;
+}

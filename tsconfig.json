@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "types": ["mocha", "chai", "jquery", "jqueryui"],
+    "typeRoots": ["./node_modules/@types"],
+    "lib": ["es2015"],
+    "module": "commonjs",
+    "target": "es6",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "outDir": "build",
+    "resolveJsonModule": true
+  },
+  // "include": ["app/**/*"]
+  "include": ["./**/*"]
+}
